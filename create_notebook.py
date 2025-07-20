@@ -98,9 +98,13 @@ notebook = {
                 "%cd voiceJuan\n",
                 "\n",
                 "print(\"\\n📦 Installing dependencies...\")\n",
-                "!pip install -r requirements.txt\n",
+                "!pip install -q -r requirements.txt TTS  # -q for quiet installation\n",
                 "\n",
-                "print(\"\\n✨ Setup complete! Ready to start voice cloning.\")"
+                "# Restart runtime to ensure TTS is properly loaded\n",
+                "print(\"\\n🔄 Restarting runtime to complete setup...\")\n",
+                "print(\"Please run this cell again after the restart.\")\n",
+                "import IPython\n",
+                "IPython.get_ipython().kernel.do_shutdown(True)"
             ],
             "execution_count": None,
             "outputs": []
