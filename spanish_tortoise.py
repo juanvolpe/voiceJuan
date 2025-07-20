@@ -1,7 +1,6 @@
 import os
 import json
 from pathlib import Path
-from dotenv import load_dotenv
 from TTS.api import TTS
 
 class SpanishTTS:
@@ -11,9 +10,7 @@ class SpanishTTS:
         self.hf_token = os.getenv('HF_TOKEN')
         if not self.hf_token:
             raise ValueError(
-                "HF_TOKEN not found. Please make sure it's set in:\n"
-                "1. Colab Secrets as 'HF_TOKEN' (recommended)\n"
-                "2. Or in a .env file with: HF_TOKEN=your_token_here"
+                "HF_TOKEN not found. Please make sure it's set in Colab Secrets as 'HF_TOKEN'."
             )
 
         # Setup paths
