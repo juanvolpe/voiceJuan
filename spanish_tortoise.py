@@ -27,11 +27,12 @@ class SpanishTTS:
         self.metadata = self.load_or_create_metadata()
         
         # Initialize TTS with token
+        print("Loading TTS model (this might take a minute)...")
         self.tts = TTS(
-            "tts_models/multilingual/multi-dataset/xtts_v2",
-            progress_bar=True,
-            gpu=True
+            model_name="tts_models/multilingual/multi-dataset/xtts",
+            progress_bar=True
         ).to("cuda")
+        print("TTS model loaded successfully!")
 
     def load_or_create_metadata(self):
         """Load metadata if exists, create default if not."""
