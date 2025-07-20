@@ -29,7 +29,7 @@ class SpanishTTS:
         # Initialize TTS with token
         print("Loading TTS model (this might take a minute)...")
         self.tts = TTS(
-            model_name="tts_models/multilingual/multi-dataset/xtts",
+            model_name="tts_models/multilingual/multi-dataset/your_tts",
             progress_bar=True
         ).to("cuda")
         print("TTS model loaded successfully!")

@@ -141,15 +141,19 @@ notebook = {
                 "id": "verify_tts"
             },
             "source": [
-                "# Verify TTS is working\n",
-                "try:\n",
-                "    from TTS.api import TTS\n",
-                "    print(\"✅ TTS package loaded successfully!\")\n",
-                "except ImportError as e:\n",
-                "    print(\"❌ TTS package not found. Please run these commands:\")\n",
-                "    print(\"!pip install -q TTS\")\n",
-                "    print(\"Then restart the runtime and run all cells from the beginning.\")\n",
-                "    raise"
+                "# List available TTS models\n",
+                "from TTS.api import TTS\n",
+                "\n",
+                "print(\"📋 Available TTS models:\")\n",
+                "print(\"\\nMultilingual models:\")\n",
+                "for model in TTS.list_models():\n",
+                "    if \"multilingual\" in model and \"multi-dataset\" in model:\n",
+                "        print(f\"- {model}\")\n",
+                "\n",
+                "print(\"\\nSpanish models:\")\n",
+                "for model in TTS.list_models():\n",
+                "    if \"es\" in model:\n",
+                "        print(f\"- {model}\")"
             ],
             "execution_count": None,
             "outputs": []
