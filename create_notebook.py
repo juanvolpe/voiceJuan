@@ -98,13 +98,39 @@ notebook = {
                 "%cd voiceJuan\n",
                 "\n",
                 "print(\"\\n📦 Installing dependencies...\")\n",
-                "!pip install -q -r requirements.txt TTS  # -q for quiet installation\n",
+                "# First install TTS explicitly\n",
+                "!pip install -q TTS\n",
+                "# Then install other requirements\n",
+                "!pip install -q -r requirements.txt\n",
+                "\n",
+                "# Verify TTS installation\n",
+                "print(\"\\n🔍 Verifying TTS installation...\")\n",
+                "!pip list | grep TTS\n",
                 "\n",
                 "# Restart runtime to ensure TTS is properly loaded\n",
                 "print(\"\\n🔄 Restarting runtime to complete setup...\")\n",
                 "print(\"Please run this cell again after the restart.\")\n",
                 "import IPython\n",
                 "IPython.get_ipython().kernel.do_shutdown(True)"
+            ],
+            "execution_count": None,
+            "outputs": []
+        },
+        {
+            "cell_type": "code",
+            "metadata": {
+                "id": "verify_tts"
+            },
+            "source": [
+                "# Verify TTS is working\n",
+                "try:\n",
+                "    from TTS.api import TTS\n",
+                "    print(\"✅ TTS package loaded successfully!\")\n",
+                "except ImportError as e:\n",
+                "    print(\"❌ TTS package not found. Please run these commands:\")\n",
+                "    print(\"!pip install -q TTS\")\n",
+                "    print(\"Then restart the runtime and run all cells from the beginning.\")\n",
+                "    raise"
             ],
             "execution_count": None,
             "outputs": []
