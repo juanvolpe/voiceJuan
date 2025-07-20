@@ -235,7 +235,7 @@ notebook = {
                 "id": "generate"
             },
             "source": [
-                "from spanish_tortoise import SpanishTTS\n",
+                "from voiceJuan.spanish_tortoise import SpanishTTS\n",
                 "from IPython.display import Audio\n",
                 "\n",
                 "# Initialize TTS\n",
