@@ -7,15 +7,13 @@ from TTS.api import TTS
 class SpanishTTS:
     def __init__(self):
         """Initialize Spanish TTS with voice samples."""
-        # Load environment variables
-        load_dotenv()
+        # Get HF token from environment (set by notebook)
         self.hf_token = os.getenv('HF_TOKEN')
         if not self.hf_token:
             raise ValueError(
-                "HF_TOKEN not found. Please create a .env file with your Hugging Face token:\n"
-                "1. Go to https://huggingface.co/settings/tokens\n"
-                "2. Create a new token\n"
-                "3. Create a .env file with: HF_TOKEN=your_token_here"
+                "HF_TOKEN not found. Please make sure it's set in:\n"
+                "1. Colab Secrets as 'HF_TOKEN' (recommended)\n"
+                "2. Or in a .env file with: HF_TOKEN=your_token_here"
             )
 
         # Setup paths
@@ -31,8 +29,12 @@ class SpanishTTS:
         # Load or create metadata
         self.metadata = self.load_or_create_metadata()
         
-        # Initialize TTS
-        self.tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to("cuda")
+        # Initialize TTS with token
+        self.tts = TTS(
+            "tts_models/multilingual/multi-dataset/xtts_v2",
+            progress_bar=True,
+            gpu=True
+        ).to("cuda")
 
     def load_or_create_metadata(self):
         """Load metadata if exists, create default if not."""
