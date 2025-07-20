@@ -97,6 +97,10 @@ notebook = {
                 "!git clone https://github.com/juanvolpe/voiceJuan.git\n",
                 "%cd voiceJuan\n",
                 "\n",
+                "# Add current directory to Python path\n",
+                "import sys\n",
+                "sys.path.append('.')\n",
+                "\n",
                 "print(\"\\n📦 Installing dependencies...\")\n",
                 "# First install TTS explicitly\n",
                 "!pip install -q TTS\n",
@@ -112,6 +116,21 @@ notebook = {
                 "print(\"Please run this cell again after the restart.\")\n",
                 "import IPython\n",
                 "IPython.get_ipython().kernel.do_shutdown(True)"
+            ],
+            "execution_count": None,
+            "outputs": []
+        },
+        {
+            "cell_type": "code",
+            "metadata": {
+                "id": "verify_path"
+            },
+            "source": [
+                "# Verify Python path is set correctly\n",
+                "import sys\n",
+                "if '.' not in sys.path:\n",
+                "    sys.path.append('.')\n",
+                "print(\"✅ Python path set up correctly!\")"
             ],
             "execution_count": None,
             "outputs": []
