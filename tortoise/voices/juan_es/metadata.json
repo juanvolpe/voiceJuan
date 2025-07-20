@@ -1,0 +1,34 @@
+{
+    "name": "juan_es",
+    "language": "es",
+    "description": "Spanish male voice samples",
+    "speaker_id": "juan_es",
+    "samples_dir": "samples",
+    "version": "1.0",
+    "settings": {
+        "conditioning_latents_cache_path": "cache/conditioning_latents.pth",
+        "use_cache": true,
+        "presets": {
+            "ultra_fast": {
+                "num_autoregressive_samples": 1,
+                "diffusion_iterations": 30,
+                "cond_free": false
+            },
+            "fast": {
+                "num_autoregressive_samples": 2,
+                "diffusion_iterations": 50,
+                "cond_free": false
+            },
+            "standard": {
+                "num_autoregressive_samples": 4,
+                "diffusion_iterations": 100,
+                "cond_free": true
+            },
+            "high_quality": {
+                "num_autoregressive_samples": 8,
+                "diffusion_iterations": 200,
+                "cond_free": true
+            }
+        }
+    }
+} 

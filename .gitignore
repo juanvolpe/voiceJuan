@@ -27,9 +27,14 @@ wheels/
 .installed.cfg
 *.egg
 
-# Tortoise TTS
+# Tortoise TTS - ignore everything except metadata
 tortoise-tts/
-tortoise/
+tortoise/*
+!tortoise/voices/
+tortoise/voices/*
+!tortoise/voices/juan_es/
+tortoise/voices/juan_es/*
+!tortoise/voices/juan_es/metadata.json
 
 # Virtual Environment
 venv/
