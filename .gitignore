@@ -1,9 +1,16 @@
+# Binary files
+*.exe
+*.dll
+*.so
+*.dylib
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -20,34 +27,20 @@ wheels/
 .installed.cfg
 *.egg
 
+# Tortoise TTS
+tortoise-tts/
+tortoise/
+
 # Virtual Environment
 venv/
-venv310/
-.env
-.venv
-env/
 ENV/
 
 # IDE
-.idea/
 .vscode/
-*.swp
-*.swo
+.idea/
 
-# Audio files
+# Generated files
 *.wav
 *.mp3
 *.m4a
-*.ogg
-
-# Tortoise cache
-.cache/
-models/
-
-# Jupyter
-.ipynb_checkpoints
-*.ipynb_checkpoints/
-
-# Logs
-*.log
-logs/ 
+generated_audio/ 
