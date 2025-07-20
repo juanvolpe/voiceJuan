@@ -54,7 +54,7 @@ notebook = {
                 "   - Only needed if not using Colab secrets\n",
                 "   - Create a `.env` file with `HF_TOKEN=your_token_here`\n",
                 "\n",
-                "The code will automatically check Colab secrets first."
+                "First, let's install required packages and check for the token:"
             ]
         },
         {
@@ -63,6 +63,9 @@ notebook = {
                 "id": "token_check"
             },
             "source": [
+                "# Install required packages\n",
+                "!pip install -q python-dotenv\n",
+                "\n",
                 "# Check for HF token in Colab secrets or .env file\n",
                 "import os\n",
                 "from google.colab import userdata\n",
